@@ -28,7 +28,7 @@ function LayoutProduct() {
 
   return (
     <div>
-      <div className="mb-[100px] grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4 my-3">
+      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4 my-3 p-5">
         {products.map((item) => (
           <div
             key={item.id}

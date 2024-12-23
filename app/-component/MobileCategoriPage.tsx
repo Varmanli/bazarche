@@ -27,13 +27,7 @@ const category: Typecategory = [
 function MobileCategoriPage() {
   return (
     <>
-      <header className="flex justify-between items-center mx-4 my-6 pb-4 border-b-2 border-light-border dark:border-dark-border">
-        <IoArrowForward className="text-2xl text-light-primary dark:text-dark-primary" />
-        <h1 className="text-xl font-semibold text-light-text dark:text-dark-text">
-          انتخاب دسته‌بندی
-        </h1>
-      </header>
-      <section className="mb-[100px]">
+      <section>
         <div className="flex flex-col gap-2 px-2">
           {category?.map((item) => (
             <div
