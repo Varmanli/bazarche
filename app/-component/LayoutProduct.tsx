@@ -25,7 +25,12 @@ async function LayoutProduct() {
     <div>
       <div className="mb-[100px] grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {product?.map((item) => (
-          <Product image={item.image} price={item.price} title={item.title} />
+          <Product
+            image={item.image}
+            price={item.price}
+            title={item.title}
+            key={item.id}
+          />
         ))}
       </div>
     </div>

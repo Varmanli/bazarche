@@ -1,4 +1,6 @@
 "use client";
+
+import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import {
   Select,
@@ -11,17 +13,18 @@ import {
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { IoArrowForward } from "react-icons/io5";
 import { IoClose } from "react-icons/io5";
-import { useState } from "react";
+import Image from "next/image";
 
-function page() {
+function Page() {
   const [images, setImages] = useState<string[]>([]);
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const files = Array.from(e.target.files || []);
-    if (images.length + files.length > 6)
-      return alert("حداکثر 6 تصویر مجاز است.");
+    if (images.length + files.length > 6) {
+      alert("حداکثر 6 تصویر مجاز است.");
+      return;
+    }
 
     files.forEach((file) => {
       const reader = new FileReader();
@@ -42,12 +45,13 @@ function page() {
   };
 
   return (
-    <div className="w-full bg-light-background dark:bg-dark-background min-h-screen p-2">
-      <form className="flex flex-col gap-6 justify-center items-center mb-[100px] m-5 max-w-3xl mx-auto">
-        <div className="w-full flex flex-col gap-4">
+    <div className="w-full bg-light-background dark:bg-dark-background min-h-screen p-4">
+      <form className="flex flex-col gap-6 max-w-3xl mx-auto">
+        {/* Image Upload Section */}
+        <div className="w-full">
           <Label
             htmlFor="picture"
-            className="text-md text-center font-semibold text-light-text dark:text-dark-text"
+            className="block text-lg font-semibold text-center text-light-text dark:text-dark-text mb-4"
           >
             عکس‌های محصول را انتخاب کنید
           </Label>
@@ -64,10 +68,12 @@ function page() {
           >
             {images.map((src, index) => (
               <div key={index} className="relative group">
-                <img
+                <Image
                   src={src}
                   alt={`Preview ${index + 1}`}
-                  className={`w-full h-28 object-cover rounded-lg shadow-md ${
+                  width={112}
+                  height={112}
+                  className={`object-cover rounded-lg shadow-md ${
                     index === 0
                       ? "border-2 border-light-primary dark:border-dark-primary"
                       : ""
@@ -93,7 +99,8 @@ function page() {
           </div>
         </div>
 
-        <div className="w-full flex flex-col gap-6 mt-6">
+        {/* Form Fields */}
+        <div className="w-full flex flex-col gap-6">
           <Select>
             <SelectTrigger className="w-full border border-light-border dark:border-dark-border rounded-lg px-4 py-2 bg-light-background dark:bg-dark-background text-light-text dark:text-dark-text focus:outline-none focus:ring-2 focus:ring-light-primary dark:focus:ring-dark-primary">
               <SelectValue placeholder="انتخاب دسته بندی" />
@@ -160,4 +167,4 @@ function page() {
   );
 }
 
-export default page;
+export default Page;
