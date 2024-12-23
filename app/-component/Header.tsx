@@ -52,7 +52,7 @@ function Header() {
               <span>دسته‌بندی‌ها</span>
             </button>
             {isMegaMenuOpen && (
-              <div className="absolute  right-0 top-full bg-light-background dark:bg-dark-background shadow-lg mt-2 rounded-lg w-[700px] py-4 grid grid-cols-2 md:grid-cols-4 gap-6 px-6">
+              <div className="absolute  z-30 right-0 top-full bg-light-background dark:bg-dark-background shadow-lg mt-2 rounded-lg w-[700px] py-4 grid grid-cols-2 md:grid-cols-4 gap-6 px-6">
                 {categories.map((category, index) => (
                   <div
                     key={index}
@@ -76,7 +76,7 @@ function Header() {
           <input
             type="text"
             placeholder="جستجو در بازارچه..."
-            className="flex-grow px-5 py-3 text-light-text dark:text-dark-text bg-transparent focus:outline-none text-sm md:text-base"
+            className="flex-grow px-5 py-3 text-light-text  bg-transparent focus:outline-none text-sm md:text-base"
           />
           <button
             type="submit"
