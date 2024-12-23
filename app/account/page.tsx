@@ -1,35 +1,80 @@
-import { FaRegBookmark } from "react-icons/fa";
-import { IoArrowForward, IoChevronBackOutline } from "react-icons/io5";
-import { RiLogoutCircleLine, RiLogoutCircleRLine } from "react-icons/ri";
+import { FaRegBookmark, FaRegAddressBook } from "react-icons/fa";
+import { IoChevronBackOutline } from "react-icons/io5";
+import {
+  RiLogoutCircleLine,
+  RiLogoutCircleRLine,
+  RiAdvertisementLine,
+} from "react-icons/ri";
+import { MdOutlinePostAdd } from "react-icons/md";
 
 function page() {
   return (
-    <div>
-      <header className="flex justify-end items-center gap-4 mx-4 my-6 border-b-2 border-accent  pb-4 ">
-        <h1 className="text-base">حساب کاربری</h1>
-        <IoArrowForward className="text-xl text-secendery" />
-      </header>
-      <div className="flex flex-col justify-center gap-2">
-        <div className="flex justify-between items-center m-3 border-b-2 border-accent pb-3">
-          <IoChevronBackOutline className="text-xl text-secendery" />
-          <div className="flex items-center justify-center gap-3">
-            <h3>ورود به حساب</h3>
-            <RiLogoutCircleRLine className="text-xl mt-1 text-secendery" />
+    <div className="w-full pt-5 bg-light-background dark:bg-dark-background min-h-screen">
+      <div className="flex flex-col justify-center gap-4 px-4 md:px-8 lg:w-2/3 lg:mx-auto">
+        {/* Login Section */}
+        <div className="flex flex-row justify-between items-center px-4 py-3 border border-light-border dark:border-dark-border rounded-lg bg-light-background dark:bg-dark-background hover:shadow-md transition-all cursor-pointer">
+          <div className="flex items-center gap-3">
+            <RiLogoutCircleRLine className="text-2xl text-light-primary dark:text-dark-primary" />
+            <h3 className="text-base md:text-lg font-medium text-light-text dark:text-dark-text">
+              ورود به حساب
+            </h3>
           </div>
+          <IoChevronBackOutline className="text-xl text-light-primary dark:text-dark-primary" />
         </div>
-        <div className="flex justify-between items-center m-3 border-b-2 border-accent pb-3">
-          <IoChevronBackOutline className="text-xl text-secendery" />
-          <div className="flex items-center justify-center gap-3">
-            <h3>آگهی های نشان شده</h3>
-            <FaRegBookmark className="text-xl mt-1 text-secendery" />
+
+        {/* My Ads Section */}
+        <div className="flex flex-row justify-between items-center px-4 py-3 border border-light-border dark:border-dark-border rounded-lg bg-light-background dark:bg-dark-background hover:shadow-md transition-all cursor-pointer">
+          <div className="flex items-center gap-3">
+            <RiAdvertisementLine className="text-2xl text-light-primary dark:text-dark-primary" />
+            <h3 className="text-base md:text-lg font-medium text-light-text dark:text-dark-text">
+              آگهی‌های من
+            </h3>
           </div>
+          <IoChevronBackOutline className="text-xl text-light-primary dark:text-dark-primary" />
         </div>
-        <div className="flex justify-between items-center m-3 border-b-2 border-accent pb-3">
-          <IoChevronBackOutline className="text-xl text-secendery" />
-          <div className="flex items-center justify-center gap-3">
-            <h3>خروج از حساب</h3>
-            <RiLogoutCircleLine className="text-xl mt-1 text-secendery" />
+
+        {/* Add New Ad Section */}
+        <div className="flex flex-row justify-between items-center px-4 py-3 border border-light-border dark:border-dark-border rounded-lg bg-light-background dark:bg-dark-background hover:shadow-md transition-all cursor-pointer">
+          <div className="flex items-center gap-3">
+            <MdOutlinePostAdd className="text-2xl text-light-primary dark:text-dark-primary" />
+            <h3 className="text-base md:text-lg font-medium text-light-text dark:text-dark-text">
+              افزودن آگهی جدید
+            </h3>
           </div>
+          <IoChevronBackOutline className="text-xl text-light-primary dark:text-dark-primary" />
+        </div>
+
+        {/* Saved Ads Section */}
+        <div className="flex flex-row justify-between items-center px-4 py-3 border border-light-border dark:border-dark-border rounded-lg bg-light-background dark:bg-dark-background hover:shadow-md transition-all cursor-pointer">
+          <div className="flex items-center gap-3">
+            <FaRegBookmark className="text-2xl text-light-primary dark:text-dark-primary" />
+            <h3 className="text-base md:text-lg font-medium text-light-text dark:text-dark-text">
+              آگهی‌های نشان شده
+            </h3>
+          </div>
+          <IoChevronBackOutline className="text-xl text-light-primary dark:text-dark-primary" />
+        </div>
+
+        {/* Contact Section */}
+        <div className="flex flex-row justify-between items-center px-4 py-3 border border-light-border dark:border-dark-border rounded-lg bg-light-background dark:bg-dark-background hover:shadow-md transition-all cursor-pointer">
+          <div className="flex items-center gap-3">
+            <FaRegAddressBook className="text-2xl text-light-primary dark:text-dark-primary" />
+            <h3 className="text-base md:text-lg font-medium text-light-text dark:text-dark-text">
+              اطلاعات تماس
+            </h3>
+          </div>
+          <IoChevronBackOutline className="text-xl text-light-primary dark:text-dark-primary" />
+        </div>
+
+        {/* Logout Section */}
+        <div className="flex flex-row justify-between items-center px-4 py-3 border border-light-border dark:border-dark-border rounded-lg bg-light-background dark:bg-dark-background hover:shadow-md transition-all cursor-pointer">
+          <div className="flex items-center gap-3">
+            <RiLogoutCircleLine className="text-2xl text-light-primary dark:text-dark-primary" />
+            <h3 className="text-base md:text-lg font-medium text-light-text dark:text-dark-text">
+              خروج از حساب
+            </h3>
+          </div>
+          <IoChevronBackOutline className="text-xl text-light-primary dark:text-dark-primary" />
         </div>
       </div>
     </div>

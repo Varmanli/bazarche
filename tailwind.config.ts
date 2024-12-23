@@ -1,7 +1,7 @@
 import type { Config } from "tailwindcss";
 
-const config = {
-  darkMode: ["class"],
+const config: Config = {
+  darkMode: ["class"], 
   content: [
     "./pages/**/*.{ts,tsx}",
     "./components/**/*.{ts,tsx}",
@@ -17,10 +17,24 @@ const config = {
       xl: "1440px",
     },
     colors: {
-      primary: "#A8D8EA",
-      secendery: "#AA96DA",
-      accent: "#FCBAD3",
-      hover: "#FFFFD2",
+      // تعریف رنگ‌ها برای لایت مود
+      light: {
+        primary: "#3B82F6",
+        secondary: "#F97316",
+        accent: "#10B981", 
+        background: "#FFFFFF",
+        text: "#1F2937",
+        border: "#E5E7EB",
+      },
+      // تعریف رنگ‌ها برای دارک مود
+      dark: {
+        primary: "#2563EB",
+        secondary: "#EA580C",
+        accent: "#14B8A6",
+        background: "#111827",
+        text: "#F9FAFB",
+        border: "#374151",
+      },
     },
     extend: {
       keyframes: {
@@ -40,6 +54,6 @@ const config = {
     },
   },
   plugins: [require("tailwindcss-animate")],
-} satisfies Config;
+};
 
 export default config;

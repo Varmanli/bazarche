@@ -23,7 +23,7 @@ async function LayoutProduct() {
   console.log(product);
   return (
     <div>
-      <div className="mb-[100px] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+      <div className="mb-[100px] grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {product?.map((item) => (
           <Product image={item.image} price={item.price} title={item.title} />
         ))}
