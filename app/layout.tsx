@@ -30,25 +30,9 @@ export const metadata: Metadata = {
     title: "بازارچه | خرید و فروش آنلاین",
     description:
       "پلتفرم بازارچه، جایی برای خرید و فروش کالاهای شما به سریع‌ترین و آسان‌ترین روش ممکن.",
-    url: "https://yourbazaarchewebsite.com",
+    url: "https://bazarche.varmanli.ir",
     siteName: "بازارچه",
-    images: [
-      {
-        url: "/public/images/og-image.jpg", // مسیر تصویر واقعی
-        width: 1200,
-        height: 630,
-        alt: "بازارچه | خرید و فروش آنلاین",
-      },
-    ],
     type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    site: "@yourbazaarche",
-    title: "بازارچه | خرید و فروش آنلاین",
-    description:
-      "پلتفرم بازارچه، جایی برای خرید و فروش کالاهای شما به سریع‌ترین و آسان‌ترین روش ممکن.",
-    images: ["/public/images/og-image.jpg"], // مسیر تصویر واقعی
   },
 };
 

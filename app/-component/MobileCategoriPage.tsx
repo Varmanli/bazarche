@@ -5,26 +5,23 @@ import { GiSofa } from "react-icons/gi";
 import { IoArrowForward, IoChevronBackOutline, IoTv } from "react-icons/io5";
 import { MdOutlineSportsTennis } from "react-icons/md";
 
-type Typecategory = [
-  { title: string; icon: React.ReactElement },
-  { title: string; icon: React.ReactElement },
-  { title: string; icon: React.ReactElement },
-  { title: string; icon: React.ReactElement },
-  { title: string; icon: React.ReactElement },
-  { title: string; icon: React.ReactElement },
-  { title: string; icon: React.ReactElement },
-  { title: string; icon: React.ReactElement }
-];
+type CategoryItem = {
+  id: string;
+  title: string;
+  icon: React.ReactElement;
+};
+
+type Typecategory = CategoryItem[];
 
 const category: Typecategory = [
-  { title: "خودرو", icon: <FaCar /> },
-  { title: "موبایل", icon: <FaMobileAlt /> },
-  { title: "مبلمان", icon: <GiSofa /> },
-  { title: "تلوزیون", icon: <IoTv /> },
-  { title: "لپتاپ", icon: <FaLaptop /> },
-  { title: "لوازم خانگی", icon: <CgSmartHomeRefrigerator /> },
-  { title: "لوازم ورزشی", icon: <MdOutlineSportsTennis /> },
-  { title: "پوشاک", icon: <FaTshirt /> },
+  { id: "1", title: "خودرو", icon: <FaCar /> },
+  { id: "2", title: "موبایل", icon: <FaMobileAlt /> },
+  { id: "3", title: "مبلمان", icon: <GiSofa /> },
+  { id: "4", title: "تلوزیون", icon: <IoTv /> },
+  { id: "5", title: "لپتاپ", icon: <FaLaptop /> },
+  { id: "6", title: "لوازم خانگی", icon: <CgSmartHomeRefrigerator /> },
+  { id: "7", title: "لوازم ورزشی", icon: <MdOutlineSportsTennis /> },
+  { id: "8", title: "پوشاک", icon: <FaTshirt /> },
 ];
 
 function MobileCategoriPage() {
@@ -38,9 +35,9 @@ function MobileCategoriPage() {
       </header>
       <section className="mb-[100px]">
         <div className="flex flex-col gap-2 px-2">
-          {category?.map((item, index) => (
+          {category?.map((item) => (
             <div
-              key={index}
+              key={item.id}
               className="flex justify-between items-center px-4 py-3 border border-light-border dark:border-dark-border rounded-lg bg-light-background dark:bg-dark-background hover:shadow-md transition-all cursor-pointer"
             >
               <div className="flex items-center gap-3">
