@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 function LayoutProduct() {
   const products = [
     {
@@ -27,25 +29,29 @@ function LayoutProduct() {
   ];
 
   return (
-    <div>
-      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4 my-3 p-5">
+    <div className="p-5">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {products.map((item) => (
           <div
             key={item.id}
-            className="border rounded-lg border-light-border dark:border-dark-border shadow-md overflow-hidden"
+            className="flex items-center justify-between border border-[#e5e7eb] dark:border-[#374151] rounded-lg p-4 bg-white dark:bg-[#1f2937] shadow-md hover:shadow-lg hover:bg-[#f9fafb] dark:hover:bg-[#111827] transition-all"
           >
-            <img
-              src={item.image}
-              alt={item.title}
-              className="w-full h-48 object-cover"
-            />
-            <div className="p-4">
-              <h3 className="text-lg font-bold text-gray-800 dark:text-gray-200">
+            <div className="ml-4 flex flex-col justify-around gap-3">
+              <h3 className="text-lg font-semibold text-[#111827] dark:text-[#f3f4f6] mb-1">
                 {item.title}
               </h3>
-              <p className="text-primary dark:text-light-primary mt-2 font-medium">
+              <p className="text-md font-bold text-[#2563eb] dark:text-[#93c5fd]">
                 {item.price}
               </p>
+            </div>
+            <div className="relative w-24 h-24 flex-shrink-0">
+              <Image
+                src={item.image}
+                alt={item.title}
+                layout="fill"
+                objectFit="cover"
+                className="rounded-lg"
+              />
             </div>
           </div>
         ))}
