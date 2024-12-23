@@ -1,7 +1,8 @@
 import type { Config } from "tailwindcss";
+import defaultTheme from "tailwindcss/defaultTheme";
 
 const config: Config = {
-  darkMode: ["class"], 
+  darkMode: ["class"],
   content: [
     "./pages/**/*.{ts,tsx}",
     "./components/**/*.{ts,tsx}",
@@ -16,27 +17,27 @@ const config: Config = {
       lg: "976px",
       xl: "1440px",
     },
-    colors: {
-      // تعریف رنگ‌ها برای لایت مود
-      light: {
-        primary: "#3B82F6",
-        secondary: "#F97316",
-        accent: "#10B981", 
-        background: "#FFFFFF",
-        text: "#1F2937",
-        border: "#E5E7EB",
-      },
-      // تعریف رنگ‌ها برای دارک مود
-      dark: {
-        primary: "#2563EB",
-        secondary: "#EA580C",
-        accent: "#14B8A6",
-        background: "#111827",
-        text: "#F9FAFB",
-        border: "#374151",
-      },
-    },
     extend: {
+      colors: {
+        // تعریف رنگ‌ها برای لایت مود
+        light: {
+          primary: "#3B82F6",
+          secondary: "#F97316",
+          accent: "#10B981",
+          background: "#FFFFFF",
+          text: "#1F2937",
+          border: "#E5E7EB",
+        },
+        // تعریف رنگ‌ها برای دارک مود
+        dark: {
+          primary: "#2563EB",
+          secondary: "#EA580C",
+          accent: "#14B8A6",
+          background: "#111827",
+          text: "#F9FAFB",
+          border: "#374151",
+        },
+      },
       keyframes: {
         "accordion-down": {
           from: { height: "0" },
@@ -51,6 +52,9 @@ const config: Config = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
+    },
+    colors: {
+      ...defaultTheme.colors, // اضافه کردن رنگ‌های پیش‌فرض تیلویند
     },
   },
   plugins: [require("tailwindcss-animate")],

@@ -1,42 +1,21 @@
-import Image from "next/image";
 import { FaRegBookmark } from "react-icons/fa";
 import { IoArrowForward, IoShareSocial } from "react-icons/io5";
 import { MdPhoneInTalk } from "react-icons/md";
+import ImageGallery from "../-component/ImageGallery";
 
 function page() {
+  const images = [
+    "/images/goshi.jpg",
+    "/images/goshi1.jpg",
+    "/images/goshi2.jpg",
+  ];
+
   return (
     <div className="text-right mb-10 px-4">
-      {/* Main Section */}
       <section className="grid md:grid-cols-3 gap-6 bg-light-background dark:bg-dark-background rounded-lg shadow-lg p-6">
         {/* Image Gallery Section */}
-        <div className="md:col-span-1 flex flex-col items-center gap-4">
-          <div className="w-full h-64 md:h-96 overflow-hidden rounded-lg shadow-lg">
-            <Image
-              src="https://dqcxviiyjskhxkupelvr.supabase.co/storage/v1/object/public/product/iphone13.png"
-              alt="Product Image"
-              layout="responsive"
-              width={400}
-              height={400}
-              className="object-cover"
-            />
-          </div>
-          <div className="flex gap-2">
-            {[...Array(3)].map((_, index) => (
-              <div
-                key={index}
-                className="w-16 h-16 overflow-hidden rounded-lg border border-light-border dark:border-dark-border cursor-pointer hover:opacity-80"
-              >
-                <Image
-                  src="https://dqcxviiyjskhxkupelvr.supabase.co/storage/v1/object/public/product/iphone13.png"
-                  alt={`Gallery Image ${index + 1}`}
-                  layout="responsive"
-                  width={400}
-                  height={400}
-                  className="object-cover"
-                />
-              </div>
-            ))}
-          </div>
+        <div className="md:col-span-1">
+          <ImageGallery images={images} />
         </div>
 
         {/* Details Section */}
