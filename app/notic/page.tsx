@@ -18,6 +18,10 @@ import Image from "next/image";
 
 function Page() {
   const [images, setImages] = useState<string[]>([]);
+  const [price, setPrice] = useState("");
+  const [error, setError] = useState("");
+  const [title, setTitle] = useState("");
+  const [caption, setCaption] = useState("");
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const files = Array.from(e.target.files || []);
@@ -42,6 +46,38 @@ function Page() {
 
   const handleRemoveImage = (index: number) => {
     setImages((prevImages) => prevImages.filter((_, i) => i !== index));
+  };
+
+  const handlePriceChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const rawValue = e.target.value.replace(/,/g, "").replace(/ تومان/g, ""); // حذف جداکننده‌ها و تومان
+    if (/^\d*$/.test(rawValue)) {
+      setError("");
+      setPrice(
+        rawValue !== ""
+          ? rawValue.replace(/\B(?=(\d{3})+(?!\d))/g, ",") + " تومان"
+          : ""
+      );
+    } else {
+      setError("لطفاً فقط عدد وارد کنید.");
+    }
+  };
+
+  const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    if (value.length <= 50) {
+      setTitle(value);
+    } else {
+      alert("عنوان نمی‌تواند بیشتر از 50 کاراکتر باشد.");
+    }
+  };
+
+  const handleCaptionChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const value = e.target.value;
+    if (value.length <= 300) {
+      setCaption(value);
+    } else {
+      alert("توضیحات نمی‌تواند بیشتر از 300 کاراکتر باشد.");
+    }
   };
 
   return (
@@ -138,23 +174,32 @@ function Page() {
             </SelectContent>
           </Select>
 
-          <Input
-            type="text"
-            id="price"
-            placeholder="قیمت را وارد کنید"
-            className="w-full border border-light-border dark:border-dark-border rounded-lg px-4 py-2 bg-light-background dark:bg-dark-background text-light-text dark:text-dark-text focus:outline-none focus:ring-2 focus:ring-light-primary dark:focus:ring-dark-primary"
-          />
+          <div className="w-full">
+            <Input
+              type="text"
+              id="price"
+              placeholder="قیمت را وارد کنید"
+              value={price}
+              onChange={handlePriceChange}
+              className="w-full border border-light-border dark:border-dark-border rounded-lg px-4 py-2 bg-light-background dark:bg-dark-background text-light-text dark:text-dark-text focus:outline-none focus:ring-2 focus:ring-light-primary dark:focus:ring-dark-primary"
+            />
+            {error && <p className="text-red-500 text-sm mt-1">{error}</p>}
+          </div>
 
           <Input
             type="text"
             id="title"
-            placeholder="عنوان را وارد کنید"
+            placeholder="عنوان را وارد کنید (حداکثر 50 کاراکتر)"
+            value={title}
+            onChange={handleTitleChange}
             className="w-full border border-light-border dark:border-dark-border rounded-lg px-4 py-2 bg-light-background dark:bg-dark-background text-light-text dark:text-dark-text focus:outline-none focus:ring-2 focus:ring-light-primary dark:focus:ring-dark-primary"
           />
 
           <Textarea
-            placeholder="توضیحات محصول را بنویسید"
+            placeholder="توضیحات محصول را بنویسید (حداکثر 300 کاراکتر)"
             id="caption"
+            value={caption}
+            onChange={handleCaptionChange}
             className="w-full border border-light-border dark:border-dark-border rounded-lg px-4 py-2 bg-light-background dark:bg-dark-background text-light-text dark:text-dark-text focus:outline-none focus:ring-2 focus:ring-light-primary dark:focus:ring-dark-primary"
           />
 

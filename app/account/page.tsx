@@ -11,17 +11,6 @@ function page() {
   return (
     <div className="w-full pt-5 bg-light-background dark:bg-dark-background min-h-screen">
       <div className="flex flex-col justify-center gap-4 px-4 md:px-8 lg:w-2/3 lg:mx-auto">
-        {/* Login Section */}
-        <div className="flex flex-row justify-between items-center px-4 py-3 border border-light-border dark:border-dark-border rounded-lg bg-light-background dark:bg-dark-background hover:shadow-md transition-all cursor-pointer">
-          <div className="flex items-center gap-3">
-            <RiLogoutCircleRLine className="text-2xl text-light-primary dark:text-dark-primary" />
-            <h3 className="text-base md:text-lg font-medium text-light-text dark:text-dark-text">
-              ورود به حساب
-            </h3>
-          </div>
-          <IoChevronBackOutline className="text-xl text-light-primary dark:text-dark-primary" />
-        </div>
-
         {/* My Ads Section */}
         <div className="flex flex-row justify-between items-center px-4 py-3 border border-light-border dark:border-dark-border rounded-lg bg-light-background dark:bg-dark-background hover:shadow-md transition-all cursor-pointer">
           <div className="flex items-center gap-3">
